@@ -9,8 +9,8 @@ const pixelFont = VT323({
 });
 
 export const metadata: Metadata = {
-  title: "Personal Website",
-  description: "Personal Website",
+  title: "Vincent",
+  description: "Vincent",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
