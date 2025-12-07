@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --tos-bg: #FFFFFF;
+  --tos-text: #000000;
+  --tos-red: #AA0000;
+  --tos-blue: #0000AA;
+  --tos-purple: #AA00AA;
+  --tos-green: #00AA00;
+  --tos-yellow: #FFD93C;
+  --tos-lightblue: #55FFFF;
+}
+
+* {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+body {
+  font-family: 'VT323', monospace;
+  font-size: 1.2rem;
+  background: var(--tos-bg);
+  color: var(--tos-text);
+  -webkit-font-smoothing: none;
+}
