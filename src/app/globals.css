@@ -1,27 +1,72 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-:root {
-  --tos-bg: #FFFFFF;
-  --tos-text: #000000;
-  --tos-red: #AA0000;
-  --tos-blue: #0000AA;
-  --tos-purple: #AA00AA;
-  --tos-green: #00AA00;
-  --tos-yellow: #FFD93C;
-  --tos-lightblue: #55FFFF;
+@layer base {
+  :root {
+    --tos-bg: #FFFFFF;
+    --tos-text: #000000;
+    --tos-red: #AA0000;
+    --tos-blue: #0000AA;
+    --tos-purple: #AA00AA;
+    --tos-green: #00AA00;
+    --tos-yellow: #FFD93C;
+    --tos-lightblue: #55FFFF;
+  }
+
+  body {
+    font-family: 'VT323', monospace;
+    font-size: 1.2rem;
+    @apply bg-tos-bg text-tos-text antialiased;
+    -webkit-font-smoothing: none;
+  }
+
+  * {
+    image-rendering: pixelated;
+  }
 }
 
-* {
-  image-rendering: pixelated;
-  image-rendering: crisp-edges;
+@theme {
+  --color-tos-bg: var(--tos-bg);
+  --color-tos-text: var(--tos-text);
+  --color-tos-red: var(--tos-red);
+  --color-tos-blue: var(--tos-blue);
+  --color-tos-purple: var(--tos-purple);
+  --color-tos-green: var(--tos-green);
+  --color-tos-yellow: var(--tos-yellow);
+  --color-tos-lightblue: var(--tos-lightblue);
+  
+  --animate-scan: scan 8s linear infinite;
+  --animate-slide-up: slide-up 0.6s ease-out forwards;
+  
+  @keyframes scan {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100vh); }
+  }
+
+  @keyframes slide-up {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
 }
 
-body {
-  font-family: 'VT323', monospace;
-  font-size: 1.2rem;
-  background: var(--tos-bg);
-  color: var(--tos-text);
-  -webkit-font-smoothing: none;
+@layer components {
+  .retro-container {
+    border: 4px double var(--retro-color, #000); 
+    @apply bg-white;
+  }
+
+  .retro-header {
+    background-color: var(--retro-color, #000);
+    border-bottom: 2px solid var(--retro-color, #000);
+    @apply text-white px-2 py-1 text-base md:text-lg font-bold uppercase tracking-widest truncate;
+  }
+  
+  .retro-caption {
+    background-color: var(--retro-color, #000);
+    @apply mt-0.5 px-1.5 py-0.5 text-sm md:text-base font-bold uppercase tracking-wider text-center truncate;
+  }
+
+  .retro-btn {
+    border: 2px solid var(--tos-green);
+    @apply inline-block px-4 py-2 font-bold uppercase tracking-wider text-sm transition-colors bg-tos-green text-white hover:bg-white hover:text-tos-green;
+  }
 }

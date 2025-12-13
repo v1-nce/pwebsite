@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, CSSProperties } from 'react';
 
 interface SectionProps {
   title: string;
@@ -7,17 +7,17 @@ interface SectionProps {
 }
 
 export const Section = ({ title, color, children }: SectionProps) => {
-  const theme = `var(--tos-${color})`;
-
   return (
-    <section className="bg-white" style={{ border: `4px double ${theme}` }}>
-      <header 
-        className="px-2 py-1 text-base md:text-lg font-bold uppercase tracking-widest truncate border-b-2"
-        style={{ background: theme, color: 'white', borderColor: theme }}
-      >
+    <section 
+      className="retro-container" 
+      style={{ '--retro-color': `var(--tos-${color})` } as CSSProperties}
+    >
+      <header className="retro-header">
         [{title}]
       </header>
-      <div className="p-2.5 md:p-4">{children}</div>
+      <div className="p-2.5 md:p-4">
+        {children}
+      </div>
     </section>
   );
 };
