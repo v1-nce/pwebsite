@@ -66,7 +66,7 @@ export default function Home() {
               <span className="text-xs md:text-sm italic text-gray-600 shrink-0 ml-2">Aug 2025 - May 2029 (Expected)</span>
             </div>
             <p className="text-sm md:text-base font-bold text-tos-purple">
-              Bachelor of Computing in Computer Science -- Current GPA: 4.0/5.0
+              Bachelor of Computing in Computer Science
             </p>
             <p className="text-sm md:text-base mt-1">
               Nurtured proficiency in Java, Python, Programming Methodology, OOP, Linear Algebra, 
