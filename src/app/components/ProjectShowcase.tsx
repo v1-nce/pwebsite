@@ -12,7 +12,7 @@ export const ProjectShowcase = () => {
         className="block opacity-0 animate-slide-up hover:scale-105 transition-transform duration-300 w-full max-w-[250px] mx-auto"
       >
         <RetroImage 
-          src="/images/Threadtalk.png" 
+          src="/images/ThreadTalk.png" 
           alt="ThreadTalk Backend" 
           width={220} 
           height={220} 
