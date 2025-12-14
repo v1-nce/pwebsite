@@ -17,6 +17,7 @@
     font-size: 1.2rem;
     @apply bg-tos-bg text-tos-text antialiased;
     -webkit-font-smoothing: none;
+    overflow-x: hidden; /* Prevents horizontal scrollbar during slide-in */
   }
 
   * {
@@ -34,17 +35,26 @@
   --color-tos-yellow: var(--tos-yellow);
   --color-tos-lightblue: var(--tos-lightblue);
   
+  /* UPDATED: Slower duration (0.8s) and cubic-bezier for "natural" feel */
   --animate-scan: scan 8s linear infinite;
-  --animate-slide-up: slide-up 0.6s ease-out forwards;
+  --animate-slide-up: slide-up 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  --animate-slide-right: slide-right 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
   
   @keyframes scan {
     0% { transform: translateY(-100%); }
     100% { transform: translateY(100vh); }
   }
 
+  /* UPDATED: Increased travel distance to 50px for visibility */
   @keyframes slide-up {
-    0% { opacity: 0; transform: translateY(20px); }
+    0% { opacity: 0; transform: translateY(50px); }
     100% { opacity: 1; transform: translateY(0); }
+  }
+
+  /* NEW: Slides in from the left */
+  @keyframes slide-right {
+    0% { opacity: 0; transform: translateX(-50px); }
+    100% { opacity: 1; transform: translateX(0); }
   }
 }
 
