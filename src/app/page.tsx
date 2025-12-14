@@ -18,7 +18,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-center md:items-start gap-3">
             <div className="w-24 md:w-28 shrink-0">
               <RetroImage 
-                src="/images/profile.jpg" 
+                src="/images/profile.png" 
                 alt="Profile Picture" 
                 width={112} 
                 height={112} 
