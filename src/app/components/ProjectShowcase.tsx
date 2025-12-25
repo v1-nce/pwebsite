@@ -7,7 +7,7 @@ export const ProjectShowcase = () => {
     <div className="grid grid-cols-2 gap-3 md:gap-6 mt-8 mb-4">
       {/* ThreadTalk - Left Square */}
       <Link 
-        href="https://github.com/v1-nce/threadtalk-backend" 
+        href="https://threadtalk-app.vercel.app" 
         target="_blank"
         className="block opacity-0 animate-slide-up hover:scale-105 transition-transform duration-300 w-full max-w-[250px] mx-auto"
       >
@@ -17,7 +17,7 @@ export const ProjectShowcase = () => {
           width={220} 
           height={220} 
           color="green" 
-          caption="THREADTALK_BACKEND" 
+          caption="THREADTALK" 
           aspect="square"
         />
       </Link>
