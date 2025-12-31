@@ -51,10 +51,10 @@ export default function Home() {
             I enjoy building full-stack applications and exploring new technologies. Currently,
             I am exploring how to implement and deploy a full scale authentication and authorisation
             system. Additionally, I am currently working on ThreadTalk, an ongoing personal project! 
-            Check out my CV below:
+            Check out my resume below:
           </p>
-          <a href="/cv/Vincent_Ong_CV.pdf" download className="retro-btn">
-            [DOWNLOAD CV]
+          <a href="/cv/Vincent_Ong_Resume.pdf" download className="retro-btn">
+            [DOWNLOAD RESUME]
           </a>
         </Section>
 
