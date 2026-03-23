@@ -2,81 +2,52 @@
 
 @layer base {
   :root {
-    --tos-bg: #FFFFFF;
-    --tos-text: #000000;
-    --tos-red: #AA0000;
-    --tos-blue: #0000AA;
-    --tos-purple: #AA00AA;
-    --tos-green: #00AA00;
-    --tos-yellow: #FFD93C;
-    --tos-lightblue: #55FFFF;
+    --page-bg: #c4634a;
+    --term-bg: #111111;
+    --term-surface: #1a1a1a;
+    --term-chrome: #242424;
+    --term-border: #333333;
+    --term-text: #d4d4d4;
+    --term-dim: #666666;
+    --term-accent: #da7756;
+    --term-cyan: #73daca;
+    --term-blue: #7aa2f7;
+    --term-green: #9ece6a;
+    --term-yellow: #e0af68;
   }
 
   body {
-    font-family: 'VT323', monospace;
-    font-size: 1.2rem;
-    @apply bg-tos-bg text-tos-text antialiased;
-    -webkit-font-smoothing: none;
-    overflow-x: hidden; /* Prevents horizontal scrollbar during slide-in */
+    background: var(--page-bg);
+    @apply text-term-text antialiased;
+    font-size: 0.875rem;
+    line-height: 1.7;
+  }
+
+  ::selection {
+    background: var(--term-accent);
+    color: var(--term-bg);
+  }
+
+  a {
+    @apply text-term-blue hover:text-term-accent transition-colors;
   }
 
   * {
-    image-rendering: pixelated;
+    scrollbar-width: thin;
+    scrollbar-color: var(--term-border) transparent;
   }
 }
 
 @theme {
-  --color-tos-bg: var(--tos-bg);
-  --color-tos-text: var(--tos-text);
-  --color-tos-red: var(--tos-red);
-  --color-tos-blue: var(--tos-blue);
-  --color-tos-purple: var(--tos-purple);
-  --color-tos-green: var(--tos-green);
-  --color-tos-yellow: var(--tos-yellow);
-  --color-tos-lightblue: var(--tos-lightblue);
-  
-  /* UPDATED: Slower duration (0.8s) and cubic-bezier for "natural" feel */
-  --animate-scan: scan 8s linear infinite;
-  --animate-slide-up: slide-up 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-  --animate-slide-right: slide-right 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-  
-  @keyframes scan {
-    0% { transform: translateY(-100%); }
-    100% { transform: translateY(100vh); }
-  }
-
-  /* UPDATED: Increased travel distance to 50px for visibility */
-  @keyframes slide-up {
-    0% { opacity: 0; transform: translateY(50px); }
-    100% { opacity: 1; transform: translateY(0); }
-  }
-
-  /* NEW: Slides in from the left */
-  @keyframes slide-right {
-    0% { opacity: 0; transform: translateX(-50px); }
-    100% { opacity: 1; transform: translateX(0); }
-  }
-}
-
-@layer components {
-  .retro-container {
-    border: 4px double var(--retro-color, #000); 
-    @apply bg-white;
-  }
-
-  .retro-header {
-    background-color: var(--retro-color, #000);
-    border-bottom: 2px solid var(--retro-color, #000);
-    @apply text-white px-2 py-1 text-base md:text-lg font-bold uppercase tracking-widest truncate;
-  }
-  
-  .retro-caption {
-    background-color: var(--retro-color, #000);
-    @apply mt-0.5 px-1.5 py-0.5 text-sm md:text-base font-bold uppercase tracking-wider text-center truncate;
-  }
-
-  .retro-btn {
-    border: 2px solid var(--tos-green);
-    @apply inline-block px-4 py-2 font-bold uppercase tracking-wider text-sm transition-colors bg-tos-green text-white hover:bg-white hover:text-tos-green;
-  }
+  --color-term-bg: var(--term-bg);
+  --color-term-surface: var(--term-surface);
+  --color-term-chrome: var(--term-chrome);
+  --color-term-border: var(--term-border);
+  --color-term-text: var(--term-text);
+  --color-term-dim: var(--term-dim);
+  --color-term-accent: var(--term-accent);
+  --color-term-cyan: var(--term-cyan);
+  --color-term-blue: var(--term-blue);
+  --color-term-green: var(--term-green);
+  --color-term-yellow: var(--term-yellow);
 }
