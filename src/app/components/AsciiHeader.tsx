@@ -1,67 +1,145 @@
 type Block = { x: number; y: number; w: number; h: number };
 type LetterDef = { width: number; height: number; blocks: Block[] };
 
+const LETTER_HEIGHT = 5;
+const BLOCK_INSET = 0.04;
+const SHADOW_OFFSETS: readonly [number, number] = [0.25, 0.125];
+
 const letters: Record<string, LetterDef> = {
-    V: {
-        width: 3.9,
-        height: 5,
+    A: {
+        width: 4, height: 5,
         blocks: [
-            { x: 0, y: 0, w: 1, h: 1 }, { x: 0, y: 1, w: 1, h: 1 }, { x: 0, y: 2, w: 1, h: 1 },
-            { x: 3, y: 0, w: 1, h: 1 }, { x: 3, y: 1, w: 1, h: 1 }, { x: 3, y: 2, w: 1, h: 1 },
-            { x: 0.8, y: 3, w: 2.4, h: 1 },
-            { x: 1.5, y: 4, w: 1, h: 1 }
+            { x: 1, y: 0, w: 2, h: 1 },
+            { x: 0, y: 1, w: 1, h: 1 }, { x: 3, y: 1, w: 1, h: 1 },
+            { x: 0, y: 2, w: 4, h: 1 },
+            { x: 0, y: 3, w: 1, h: 1 }, { x: 3, y: 3, w: 1, h: 1 },
+            { x: 0, y: 4, w: 1, h: 1 }, { x: 3, y: 4, w: 1, h: 1 },
+        ],
+    },
+    B: {
+        width: 3, height: 5,
+        blocks: [
+            { x: 0, y: 0, w: 2.6, h: 1 },
+            { x: 0, y: 1, w: 1, h: 1 }, { x: 2.2, y: 1, w: 0.8, h: 1 },
+            { x: 0, y: 2, w: 2.6, h: 1 },
+            { x: 0, y: 3, w: 1, h: 1 }, { x: 2.2, y: 3, w: 0.8, h: 1 },
+            { x: 0, y: 4, w: 2.6, h: 1 },
+        ],
+    },
+    C: {
+        width: 3, height: 5,
+        blocks: [
+            { x: 0.4, y: 0, w: 2.6, h: 1 },
+            { x: 0.4, y: 4, w: 2.6, h: 1 },
+            { x: 0, y: 1, w: 1, h: 1 }, { x: 0, y: 2, w: 1, h: 1 }, { x: 0, y: 3, w: 1, h: 1 },
+        ],
+    },
+    E: {
+        width: 3, height: 5,
+        blocks: [
+            { x: 0, y: 0, w: 3, h: 1 },
+            { x: 0, y: 2, w: 2.2, h: 1 },
+            { x: 0, y: 4, w: 3, h: 1 },
+            { x: 0, y: 1, w: 1, h: 1 }, { x: 0, y: 3, w: 1, h: 1 },
         ],
     },
     I: {
-        width: 1,
-        height: 5,
+        width: 1, height: 5,
         blocks: [
-            { x: 0, y: 0, w: 1, h: 1 }, { x: 0, y: 1, w: 1, h: 1 }, { x: 0, y: 2, w: 1, h: 1 }, { x: 0, y: 3, w: 1, h: 1 }, { x: 0, y: 4, w: 1, h: 1 }
+            { x: 0, y: 0, w: 1, h: 1 }, { x: 0, y: 1, w: 1, h: 1 }, { x: 0, y: 2, w: 1, h: 1 },
+            { x: 0, y: 3, w: 1, h: 1 }, { x: 0, y: 4, w: 1, h: 1 },
+        ],
+    },
+    J: {
+        width: 3, height: 5,
+        blocks: [
+            { x: 2, y: 0, w: 1, h: 1 }, { x: 2, y: 1, w: 1, h: 1 }, { x: 2, y: 2, w: 1, h: 1 },
+            { x: 0, y: 3, w: 1, h: 1 }, { x: 2, y: 3, w: 1, h: 1 },
+            { x: 0.4, y: 4, w: 2.6, h: 1 },
         ],
     },
     N: {
-        width: 4,
-        height: 5,
+        width: 4, height: 5,
         blocks: [
             { x: 0, y: 0, w: 1, h: 1 }, { x: 3, y: 0, w: 1, h: 1 },
             { x: 0, y: 1, w: 2, h: 1 }, { x: 3, y: 1, w: 1, h: 1 },
             { x: 0, y: 2, w: 1, h: 1 }, { x: 2, y: 2, w: 2, h: 1 },
             { x: 0, y: 3, w: 1, h: 1 }, { x: 3, y: 3, w: 1, h: 1 },
-            { x: 0, y: 4, w: 1, h: 1 }, { x: 3, y: 4, w: 1, h: 1 }
+            { x: 0, y: 4, w: 1, h: 1 }, { x: 3, y: 4, w: 1, h: 1 },
         ],
     },
-    C: {
-        width: 3,
-        height: 5,
+    O: {
+        width: 4, height: 5,
+        blocks: [
+            { x: 1, y: 0, w: 2, h: 1 },
+            { x: 0, y: 1, w: 1, h: 1 }, { x: 3, y: 1, w: 1, h: 1 },
+            { x: 0, y: 2, w: 1, h: 1 }, { x: 3, y: 2, w: 1, h: 1 },
+            { x: 0, y: 3, w: 1, h: 1 }, { x: 3, y: 3, w: 1, h: 1 },
+            { x: 1, y: 4, w: 2, h: 1 },
+        ],
+    },
+    P: {
+        width: 3, height: 5,
+        blocks: [
+            { x: 0, y: 0, w: 2.6, h: 1 },
+            { x: 0, y: 1, w: 1, h: 1 }, { x: 2.2, y: 1, w: 0.8, h: 1 },
+            { x: 0, y: 2, w: 2.6, h: 1 },
+            { x: 0, y: 3, w: 1, h: 1 },
+            { x: 0, y: 4, w: 1, h: 1 },
+        ],
+    },
+    R: {
+        width: 3, height: 5,
+        blocks: [
+            { x: 0, y: 0, w: 2.6, h: 1 },
+            { x: 0, y: 1, w: 1, h: 1 }, { x: 2.2, y: 1, w: 0.8, h: 1 },
+            { x: 0, y: 2, w: 2.6, h: 1 },
+            { x: 0, y: 3, w: 1, h: 1 }, { x: 2, y: 3, w: 1, h: 1 },
+            { x: 0, y: 4, w: 1, h: 1 }, { x: 2.5, y: 4, w: 0.8, h: 1 },
+        ],
+    },
+    S: {
+        width: 3, height: 5,
         blocks: [
             { x: 0.4, y: 0, w: 2.6, h: 1 },
-            { x: 0.4, y: 4, w: 2.6, h: 1 },
-            { x: 0, y: 1, w: 1, h: 1 }, { x: 0, y: 2, w: 1, h: 1 }, { x: 0, y: 3, w: 1, h: 1 }
-        ],
-    },
-    E: {
-        width: 3,
-        height: 5,
-        blocks: [
-            { x: 0, y: 0, w: 3, h: 1 },
-            { x: 0, y: 2, w: 2.2, h: 1 },
-            { x: 0, y: 4, w: 3, h: 1 },
-            { x: 0, y: 1, w: 1, h: 1 }, { x: 0, y: 3, w: 1, h: 1 }
+            { x: 0, y: 1, w: 1, h: 1 },
+            { x: 0.4, y: 2, w: 2.2, h: 1 },
+            { x: 2, y: 3, w: 1, h: 1 },
+            { x: 0, y: 4, w: 2.6, h: 1 },
         ],
     },
     T: {
-        width: 4,
-        height: 5,
+        width: 4, height: 5,
         blocks: [
             { x: 0, y: 0, w: 4, h: 1 },
-            { x: 1.5, y: 1, w: 1, h: 1 }, { x: 1.5, y: 2, w: 1, h: 1 }, { x: 1.5, y: 3, w: 1, h: 1 }, { x: 1.5, y: 4, w: 1, h: 1 }
+            { x: 1.5, y: 1, w: 1, h: 1 }, { x: 1.5, y: 2, w: 1, h: 1 },
+            { x: 1.5, y: 3, w: 1, h: 1 }, { x: 1.5, y: 4, w: 1, h: 1 },
+        ],
+    },
+    U: {
+        width: 4, height: 5,
+        blocks: [
+            { x: 0, y: 0, w: 1, h: 1 }, { x: 3, y: 0, w: 1, h: 1 },
+            { x: 0, y: 1, w: 1, h: 1 }, { x: 3, y: 1, w: 1, h: 1 },
+            { x: 0, y: 2, w: 1, h: 1 }, { x: 3, y: 2, w: 1, h: 1 },
+            { x: 0, y: 3, w: 1, h: 1 }, { x: 3, y: 3, w: 1, h: 1 },
+            { x: 1, y: 4, w: 2, h: 1 },
+        ],
+    },
+    V: {
+        width: 3.9, height: 5,
+        blocks: [
+            { x: 0, y: 0, w: 1, h: 1 }, { x: 0, y: 1, w: 1, h: 1 }, { x: 0, y: 2, w: 1, h: 1 },
+            { x: 3, y: 0, w: 1, h: 1 }, { x: 3, y: 1, w: 1, h: 1 }, { x: 3, y: 2, w: 1, h: 1 },
+            { x: 0.8, y: 3, w: 2.4, h: 1 },
+            { x: 1.5, y: 4, w: 1, h: 1 },
         ],
     },
 };
 
 // Rasterizes block geometry into a unified SVG trace outline.
 function generateOuterPath(blocks: Block[]): string {
-    const S = 10; // Scale factor: 0.1 SVG units -> 1 grid cell
+    const S = 10;
 
     let gw = 0, gh = 0;
     for (const b of blocks) {
@@ -85,10 +163,10 @@ function generateOuterPath(blocks: Block[]): string {
     for (let cy = 0; cy < gh; cy++) {
         for (let cx = 0; cx < gw; cx++) {
             if (!grid[cy][cx]) continue;
-            if (!filled(cx, cy - 1)) edges.push([cx, cy, cx + 1, cy]);         // top
-            if (!filled(cx + 1, cy)) edges.push([cx + 1, cy, cx + 1, cy + 1]); // right
-            if (!filled(cx, cy + 1)) edges.push([cx + 1, cy + 1, cx, cy + 1]); // bottom
-            if (!filled(cx - 1, cy)) edges.push([cx, cy + 1, cx, cy]);         // left
+            if (!filled(cx, cy - 1)) edges.push([cx, cy, cx + 1, cy]);
+            if (!filled(cx + 1, cy)) edges.push([cx + 1, cy, cx + 1, cy + 1]);
+            if (!filled(cx, cy + 1)) edges.push([cx + 1, cy + 1, cx, cy + 1]);
+            if (!filled(cx - 1, cy)) edges.push([cx, cy + 1, cx, cy]);
         }
     }
 
@@ -138,56 +216,52 @@ function generateOuterPath(blocks: Block[]): string {
     return parts.join(' ');
 }
 
+// Pre-compute shadow paths for all defined letters
 const shadowPaths: Record<string, string> = {};
 for (const [char, def] of Object.entries(letters)) {
     shadowPaths[char] = generateOuterPath(def.blocks);
 }
 
-export function AsciiHeader() {
-    const inset = 0.04; // Adjust inset to change ASCII gap width
+export function AsciiHeader({ text = "VINCENT" }: { text?: string }) {
+    const entries = text.split("").map((char, i) => ({
+        key: `${char}-${i}`,
+        def: letters[char],
+        shadowPath: shadowPaths[char],
+    }));
 
     return (
         <div
-            className="flex justify-center items-end py-4 sm:py-6 mb-1 gap-[clamp(0.2rem,1vw,0.75rem)]"
-            aria-label="Vincent"
+            className="flex justify-center items-end py-4 sm:py-6 mb-1 gap-[clamp(0.2rem,1vw,0.75rem)] text-term-accent"
+            aria-label={text}
             role="img"
         >
-            {"VINCENT".split("").map((char, i) => {
-                const def = letters[char];
-                const shadow = shadowPaths[char];
-                return (
-                    <svg
-                        key={i}
-                        viewBox={`0 0 ${def.width} 5`}
-                        className="w-auto overflow-visible shrink-0"
-                        style={{ height: 'clamp(2.5rem, 8vw, 5rem)' }}
-                        role="presentation"
-                    >
-                        {/* Shadow wireframes */}
-                        <g transform="translate(0.25, 0.25)">
-                            <path d={shadow} fill="none" stroke="#da7756" strokeWidth="0.05" />
+            {entries.map(({ key, def, shadowPath }) => (
+                <svg
+                    key={key}
+                    viewBox={`0 0 ${def.width} ${LETTER_HEIGHT}`}
+                    className="w-auto overflow-visible shrink-0"
+                    style={{ height: 'clamp(2.5rem, 8vw, 5rem)' }}
+                    role="presentation"
+                >
+                    {SHADOW_OFFSETS.map((offset) => (
+                        <g key={`shadow-${offset}`} transform={`translate(${offset}, ${offset})`}>
+                            <path d={shadowPath} fill="none" stroke="currentColor" strokeWidth="0.05" />
                         </g>
-
-                        <g transform="translate(0.125, 0.125)">
-                            <path d={shadow} fill="none" stroke="#da7756" strokeWidth="0.05" />
-                        </g>
-
-                        {/* Top circuit blocks */}
-                        <g>
-                            {def.blocks.map((b, idx) => (
-                                <rect
-                                    key={`fill-${idx}`}
-                                    x={b.x + inset}
-                                    y={b.y + inset}
-                                    width={b.w - (inset * 2)}
-                                    height={b.h - (inset * 2)}
-                                    fill="#da7756"
-                                />
-                            ))}
-                        </g>
-                    </svg>
-                );
-            })}
+                    ))}
+                    <g>
+                        {def.blocks.map((b, idx) => (
+                            <rect
+                                key={`fill-${idx}`}
+                                x={b.x + BLOCK_INSET}
+                                y={b.y + BLOCK_INSET}
+                                width={b.w - (BLOCK_INSET * 2)}
+                                height={b.h - (BLOCK_INSET * 2)}
+                                fill="currentColor"
+                            />
+                        ))}
+                    </g>
+                </svg>
+            ))}
         </div>
     );
 }

@@ -1,3 +1,4 @@
+import { AsciiHeader } from "../components/AsciiHeader";
 import { TerminalWindow } from "../components/TerminalWindow";
 import { ExperienceItem } from "../components/ExperienceItem";
 import { Footer } from "../components/Footer";
@@ -6,6 +7,7 @@ import { config } from "../../config/data";
 export default function About() {
     return (
         <div className="space-y-4 sm:space-y-6">
+            <AsciiHeader text="ABOUT" />
             <TerminalWindow title="Education">
                 <div className="flex justify-between items-baseline flex-wrap gap-2">
                     <div>

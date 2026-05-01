@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={mono.variable}>
-      <body className={`${mono.className} min-h-screen p-1 sm:p-4 lg:p-6`}>
+      <body className={`${mono.className} min-h-screen p-2 sm:p-4 lg:p-6`}>
         <div className="max-w-5xl mx-auto">
           <div className="border border-term-border rounded-xl overflow-hidden shadow-2xl">
             <div className="flex items-center gap-2 px-3 sm:px-4 py-2 bg-term-chrome border-b border-term-border select-none">

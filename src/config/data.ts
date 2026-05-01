@@ -18,21 +18,23 @@ export const config = {
     },
     experience: [
         {
-            role: "Sonzai Labs — Software Engineering Intern",
-            term: "Mar – Jun 2025",
+            role: "Software Engineer Intern",
+            company: "Sonzai Labs · Internship",
+            term: "Mar 2025 - Jun 2025 · 4 mos",
+            description: "As a Software Engineer Intern at Sonzai Labs, I contributed to the development of the startup's flagship game, \"Telemafia\", as an engineer working directly on production. I engineered scalable features, high-performance data pipelines and UI UX while ensuring production stability through rapid bug resolution on CI/CD workflows. As my first internship, I learned what taking ownership really means, had to adapt fast to new technologies on the fly, and grew a lot as a software engineer — it was intense, insane, and genuinely one of the most fun learning experiences I've had!",
             bullets: [
-                "Built high-concurrency clan system for \"Telemafia\" using Go, RESTful APIs, Redis caching and ScyllaDB.",
-                "Engineered responsive game UI/UX with React, TypeScript, Tailwind CSS and i18n.",
-                "Led frontend for secure NFT minting of 500 tokens with Web3 wallet auth and Cloudflare WAF.",
-                "Developed real-time leaderboard via Python pipelines, Apache Pulsar and ScyllaDB reconciliation."
+                "Created clan systems on both frontend and backend using Go and RESTful APIs, optimizing atomic CQL queries for ScyllaDB while implementing Redis caching for high-concurrency performance.",
+                "Engineered core gameplay UI UX production features, UI screen responsiveness, game state management (Zustand) and internationalization (i18n) strategies to support global users using React, Typescript and TailwindCSS on the frontend.",
+                "Led frontend development for Sonzai's NFT minting event, integrating smart contracts, Web3 wallet authentication while configuring Cloudflare (WAF/Rate Limiting) to mitigate DDoS and XSS attacks; launched and minted 500 NFTs.",
+                "Engineered an automated leaderboard and data reconciliation system using Python on Windmill Orchestrator, utilizing Apache Pulsar (Pub/Sub) and ScyllaDB for real-time processing.",
             ]
         },
         {
-            role: "SAF Infantry — 3rd Sergeant",
-            term: "Mar 2023 – Jan 2025",
-            bullets: [
-                "Oversaw firearms accountability and operational readiness as section commander."
-            ]
+            role: "National Service",
+            company: "Singapore Army · Full-time",
+            term: "Mar 2023 - Jan 2025 · 1 yr 11 mos",
+            description: "Served as a 3rd Sergeant (3SG) Infantry Specialist in the Singapore Armed Forces. Led and trained recruits as a commander, oversaw firearms accountability, and resolved conflicts as a role model.",
+            bullets: []
         }
     ],
     skills: [
@@ -45,41 +47,44 @@ export const config = {
     projects: [
         {
             name: "ThreadTalk",
-            date: "Dec 2025",
-            description: "Reddit-inspired forum with deep discussion threading and fully automated serverless deployment.",
-            bullets: [
-                "Architected with Go (Gin) RESTful APIs, Next.js frontend, and PostgreSQL.",
-                "Recursive hierarchical comment nesting with infinite scroll and concurrent processing.",
-                "Dockerized serverless backend on AWS Lambda with CI/CD via GitHub Actions and OIDC.",
-                "Hardened with AWS VPC isolation, IAM least-privilege policies, and JWT authentication.",
-            ]
+            date: "Dec 2025 – Present",
+            image: "/images/threadtalk.png",
+            description: "ThreadTalk is a serverless, Reddit-inspired forum REST API built with Go and PostgreSQL, containerized with Docker, and deployed to AWS Lambda. The backend utilizes a secure CI/CD pipeline via GitHub Actions and OIDC for keyless deployments. Concurrent processing is used for infinite scroll and recursive comment nesting, supported by golang-migrate schema management.",
+            links: [
+                { label: "Backend", url: "https://github.com/v1-nce/threadtalk-backend" },
+                { label: "Frontend", url: "https://github.com/v1-nce/threadtalk-frontend" },
+            ],
+        },
+        {
+            name: "SignalSkin – TinyFish Hackathon 2026",
+            date: "Apr 2026",
+            description: "Built an autonomous cosmetic intelligence agent for the TinyFish x OpenAI hackathon to deliver personalized, evidence-backed skincare recommendations. Utilized TinyFish's provider-based agentic web extraction engine using Next.js and TypeScript. Users receive transparent reasoning on product fit, potential ingredient risks, and a variety of product options.",
+            links: [],
+        },
+        {
+            name: "Pocket Change – NUS Fintech Summit 2026",
+            date: "Jan 2026",
+            image: "/images/pocket_change.png",
+            description: "Pocket Change is an XRP Ledger-based cross-border lending platform that lowers collateral requirements to under 30% to unlock funds for immediate investment. Built with FastAPI, the system eliminates 100% pre-funding requirements by deploying XRPL escrows and agent-driven credit underwriting for efficient conditional settlement.",
+            links: [
+                { label: "Live Demo", url: "https://pocketchange-app.vercel.app" },
+            ],
+        },
+        {
+            name: "Reporot – Hack&Roll 2026",
+            date: "Jan 2026",
+            image: "/images/reporot.png",
+            description: "Reporot is an AI-powered tool that transforms GitHub repositories into engaging TikTok-style videos via a FastAPI, OpenAI, and FFmpeg video-generation pipeline. The platform features a scroll-optimized frontend built with Next.js and PostgreSQL, allowing users to seamlessly browse synthesized reels.",
+            links: [
+                { label: "Demo Video", url: "https://www.youtube.com/watch?v=Jo7y_JhRX7k&t=15s" },
+            ],
         },
         {
             name: "Visente",
-            date: "Nov 2022 – Mar 2023",
-            description: "Niche fragrance decanting venture combining market research with entrepreneurship.",
-            bullets: [
-                "Generated ~$100 profit selling 40+ bottles via strategic consumer demand analysis.",
-                "Optimized cost efficiency through fragrance profiling and competitor pricing research.",
-            ]
+            date: "Dec 2022 – Mar 2023",
+            image: "/images/visente.png",
+            description: "Visente was an entrepreneurial fragrance decanting venture providing affordable access to diverse luxury scents. I conducted strategic market research on competitor pricing and consumer trends to identify high-margin opportunities. Selling over 40 units for a $100 profit in just 2 months.",
+            links: [],
         },
-        {
-            name: "NUS Fintech Summit Hackathon",
-            date: "Jan 2026",
-            description: "Blockchain-based trade finance solution eliminating pre-funding requirements.",
-            bullets: [
-                "Architected blockchain rails on XRP Ledger via FastAPI with automated credential verification.",
-                "Deployed XRPL escrows and agent-driven credit underwriting, replacing idle collateral locks.",
-            ]
-        },
-        {
-            name: "Veridien",
-            date: "Jun – Jul 2025",
-            description: "Full-stack journalling platform promoting creative expression with seamless writing tools.",
-            bullets: [
-                "Built with Next.js, Express.js, and PostgreSQL for a complete CRUD experience.",
-                "Email authentication and real-time autosave to preserve user drafts.",
-            ]
-        }
     ]
 } as const;
