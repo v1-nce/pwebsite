@@ -24,7 +24,7 @@ export function ProjectCard({ project }: { project: Project }) {
                                     href={link.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-xs border border-term-accent/50 px-3 py-1 rounded text-term-accent hover:bg-term-accent hover:text-term-bg transition-colors no-underline"
+                                    className="btn-lift text-xs border border-term-accent/50 px-3 py-1 rounded text-term-accent hover:bg-term-accent hover:text-term-bg no-underline"
                                 >
                                     {link.label} ↗
                                 </a>

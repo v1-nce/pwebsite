@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
 import { Navbar } from "./components/Navbar";
+import { CursorSpotlight } from "./components/CursorSpotlight";
+import { SmoothScroll } from "./components/SmoothScroll";
 import "./globals.css";
 
 const mono = JetBrains_Mono({
@@ -18,7 +20,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en" className={mono.variable}>
       <body className={`${mono.className} min-h-screen p-2 sm:p-4 lg:p-6`}>
-        <div className="max-w-5xl mx-auto">
+        <CursorSpotlight />
+        <SmoothScroll>
+        <div className="max-w-5xl mx-auto relative">
           <div className="border border-term-border rounded-xl overflow-hidden shadow-2xl">
             <div className="flex items-center gap-2 px-3 sm:px-4 py-2 bg-term-chrome border-b border-term-border select-none">
               <div className="flex gap-1.5 mr-3 shrink-0">
@@ -33,6 +37,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             </div>
           </div>
         </div>
+        </SmoothScroll>
       </body>
     </html>
   );

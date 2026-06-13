@@ -32,9 +32,9 @@ export default function Home() {
               href="/cv/Vincent_Ong_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block text-xs border border-term-accent/50 px-4 py-1.5 sm:px-3 sm:py-1 rounded text-term-accent hover:bg-term-accent hover:text-term-bg transition-colors no-underline"
+              className="btn-lift inline-block text-xs border border-term-accent/50 px-4 py-1.5 sm:px-3 sm:py-1 rounded text-term-accent hover:bg-term-accent hover:text-term-bg no-underline"
             >
-              Download Resume →
+              View Resume →
             </a>
           </div>
         </div>

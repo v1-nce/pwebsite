@@ -1,3 +1,8 @@
+"use client";
+
+import { motion } from "motion/react";
+import { letterIn, stagger } from "../lib/motion";
+
 type Block = { x: number; y: number; w: number; h: number };
 type LetterDef = { width: number; height: number; blocks: Block[] };
 
@@ -230,14 +235,18 @@ export function AsciiHeader({ text = "VINCENT" }: { text?: string }) {
     }));
 
     return (
-        <div
+        <motion.div
             className="flex justify-center items-end py-4 sm:py-6 mb-1 gap-[clamp(0.2rem,1vw,0.75rem)] text-term-accent"
             aria-label={text}
             role="img"
+            variants={stagger(0.07)}
+            initial="hidden"
+            animate="visible"
         >
             {entries.map(({ key, def, shadowPath }) => (
-                <svg
+                <motion.svg
                     key={key}
+                    variants={letterIn}
                     viewBox={`0 0 ${def.width} ${LETTER_HEIGHT}`}
                     className="w-auto overflow-visible shrink-0"
                     style={{ height: 'clamp(2.5rem, 8vw, 5rem)' }}
@@ -260,8 +269,8 @@ export function AsciiHeader({ text = "VINCENT" }: { text?: string }) {
                             />
                         ))}
                     </g>
-                </svg>
+                </motion.svg>
             ))}
-        </div>
+        </motion.div>
     );
 }

@@ -1,4 +1,8 @@
+"use client";
+
 import { ReactNode } from "react";
+import { motion } from "motion/react";
+import { fadeUp, hover, viewport } from "../lib/motion";
 
 interface TerminalWindowProps {
     title: string;
@@ -7,7 +11,14 @@ interface TerminalWindowProps {
 
 export function TerminalWindow({ title, children }: TerminalWindowProps) {
     return (
-        <div className="border border-term-border rounded-lg overflow-hidden max-w-full">
+        <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport}
+            whileHover={{ y: -2, transition: hover.transition }}
+            className="term-window border border-term-border rounded-lg overflow-hidden max-w-full"
+        >
             <div className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-term-chrome border-b border-term-border select-none">
                 <div className="flex gap-1 sm:gap-1.5">
                     <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-[#ff5f57]" />
@@ -20,6 +31,6 @@ export function TerminalWindow({ title, children }: TerminalWindowProps) {
             <div className="bg-term-surface break-words" style={{ padding: 'clamp(0.75rem, 2.5vw, 1.5rem)' }}>
                 {children}
             </div>
-        </div>
+        </motion.div>
     );
 }
