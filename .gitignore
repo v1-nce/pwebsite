@@ -43,3 +43,5 @@ next-env.d.ts
 # local tooling / notes
 .claude
 UIUX.md
+/docs/
+/jobs/
