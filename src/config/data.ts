@@ -14,9 +14,20 @@ export const config = {
     education: {
         school: "National University of Singapore",
         degree: "Bachelor of Computing in Computer Science",
-        term: "Present"
+        term: "Aug 2025 - Present"
     },
     experience: [
+        {
+            role: "AI Engineer Intern",
+            company: "AI Singapore · Internship",
+            term: "May 2026 - Jul 2026 · 3 mos",
+            description: "As an AI Engineer Intern at AI Singapore, I built agentic document understanding systems for CSIT — orchestrating open-source vision-language models into a layout-aware parsing pipeline, and building the evaluation harness to prove it actually worked. This was my first deep dive into agentic systems and LLM evaluation, and it taught me how much of AI engineering is really about measurement, guardrails and knowing when a model is quietly wrong.",
+            bullets: [
+                "Engineered an agentic document parser for CSIT orchestrating 23 open-source OCR and Vision-Language-Models (GLM-4.6V, Qwen3-VL) through layout-aware, region-level tool dispatching.",
+                "Engineered a self-improving evaluation harness pairing cross-family VLM-as-a-Judge scoring with deterministic guardrails and short-term memory with robust regression test coverage.",
+                "Deployed on-prem using oMLX instrumented with OpenTelemetry/Arize Phoenix tracing and rigorously A/B tested agentic variations against deterministic baselines.",
+            ]
+        },
         {
             role: "Software Engineer Intern",
             company: "Sonzai Labs · Internship",
@@ -38,9 +49,9 @@ export const config = {
         }
     ],
     skills: [
-        { category: "Languages", items: "Java, Python, Go, TypeScript, JavaScript, SQL, R" },
+        { category: "Languages", items: "Python, Go, Java, TypeScript, JavaScript, SQL, R" },
         { category: "Frameworks", items: "React, Gin, Next.js, LangGraph, PyTorch, FastAPI, Express.js" },
-        { category: "Infrastructure", items: "PostgreSQL, Docker, Git, AWS, Redis, GCP, AWS Bedrock" },
+        { category: "Infrastructure", items: "PostgreSQL, Docker, Git, Redis, oMLX, GCP, AWS" },
         { category: "Certifications", items: "Google Cloud Professional ML Engineer" },
         { category: "Interests", items: "Art & drawing, BJJ, tennis, taekwondo" }
     ],
@@ -54,6 +65,13 @@ export const config = {
                 { label: "Backend", url: "https://github.com/v1-nce/threadtalk-backend" },
                 { label: "Frontend", url: "https://github.com/v1-nce/threadtalk-frontend" },
             ],
+        },
+        {
+            name: "Bastion – Sup x OpenAI Hackathon 2026",
+            date: "Jun 2026",
+            image: "/images/bastion.jpg",
+            description: "Bastion is an edge-native threat detection layer that intercepts and denies malicious tools, skills and URLs before AI agents execute them. Built on Cloudflare Workers with D1, KV and Workers AI, it fails closed by default and anchors every verdict in an independently verifiable SHA-256 hash chain, so decisions stay auditable after the fact.",
+            links: [],
         },
         {
             name: "SignalSkin – TinyFish Hackathon 2026",
