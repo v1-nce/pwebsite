@@ -9,7 +9,7 @@ export function ProjectCard({ project }: { project: Project }) {
 
     return (
         <TerminalWindow title={project.name}>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4">
                 <div className="flex-1 min-w-0">
                     <div className="flex justify-between items-baseline gap-3 mb-2 flex-wrap">
                         <span className="text-term-accent font-semibold text-sm sm:text-base">{project.name}</span>
@@ -33,7 +33,7 @@ export function ProjectCard({ project }: { project: Project }) {
                     )}
                 </div>
                 {image && (
-                    <div className="w-full max-w-[180px] sm:max-w-none sm:w-40 shrink-0 rounded border border-term-border overflow-hidden self-center sm:self-start aspect-square">
+                    <div className="w-full max-w-[180px] sm:max-w-none sm:w-40 shrink-0 rounded border border-term-border overflow-hidden self-center aspect-square">
                         <Image
                             src={image}
                             alt={project.name}

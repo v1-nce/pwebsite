@@ -23,9 +23,9 @@ export const config = {
             term: "May 2026 - Jul 2026 · 3 mos",
             description: "As an AI Engineer Intern at AI Singapore, I built agentic document understanding systems for CSIT — orchestrating open-source vision-language models into a layout-aware parsing pipeline, and building the evaluation harness to prove it actually worked. This was my first deep dive into agentic systems and LLM evaluation, and it taught me how much of AI engineering is really about measurement, guardrails and knowing when a model is quietly wrong.",
             bullets: [
-                "Engineered an agentic document parser for CSIT orchestrating 23 open-source OCR and Vision-Language-Models (GLM-4.6V, Qwen3-VL) through layout-aware, region-level tool dispatching.",
-                "Engineered a self-improving evaluation harness pairing cross-family VLM-as-a-Judge scoring with deterministic guardrails and short-term memory with robust regression test coverage.",
-                "Deployed on-prem using oMLX instrumented with OpenTelemetry/Arize Phoenix tracing and rigorously A/B tested agentic variations against deterministic baselines.",
+                "Engineered an agentic multimodal document parser for CSIT orchestrating 18 open-source OCR and VLMs (GLM-4.6V, Qwen3-VL) through layout-aware, region-level tool dispatching, yielding 95% extraction fidelity.",
+                "Designed a self-improving evaluation harness pairing cross-family VLM-as-a-Judge scoring with deterministic guardrails, stateful agent memory and robust regression test coverage, cutting CER and WER by ~25%.",
+                "Deployed on-prem, serving quantized VLMs on Apple Silicon via MLX/oMLX instrumented with OpenTelemetry and Arize Phoenix tracing. Rigorously A/B tested agentic variations against deterministic baselines.",
             ]
         },
         {
@@ -34,10 +34,10 @@ export const config = {
             term: "Mar 2025 - Jun 2025 · 4 mos",
             description: "As a Software Engineer Intern at Sonzai Labs, I contributed to the development of the startup's flagship game, \"Telemafia\", as an engineer working directly on production. I engineered scalable features, high-performance data pipelines and UI UX while ensuring production stability through rapid bug resolution on CI/CD workflows. As my first internship, I learned what taking ownership really means, had to adapt fast to new technologies on the fly, and grew a lot as a software engineer — it was intense, insane, and genuinely one of the most fun learning experiences I've had!",
             bullets: [
-                "Created clan systems on both frontend and backend using Go and RESTful APIs, optimizing atomic CQL queries for ScyllaDB while implementing Redis caching for high-concurrency performance.",
-                "Engineered core gameplay UI UX production features, UI screen responsiveness, game state management (Zustand) and internationalization (i18n) strategies to support global users using React, Typescript and TailwindCSS on the frontend.",
-                "Led frontend development for Sonzai's NFT minting event, integrating smart contracts, Web3 wallet authentication while configuring Cloudflare (WAF/Rate Limiting) to mitigate DDoS and XSS attacks; launched and minted 500 NFTs.",
-                "Engineered an automated leaderboard and data reconciliation system using Python on Windmill Orchestrator, utilizing Apache Pulsar (Pub/Sub) and ScyllaDB for real-time processing.",
+                "Built a high-concurrency clan system for the startup's flagship game, Telemafia, serving 22 REST APIs in Go, with two-tier Redis caching and atomic ScyllaDB CQL counters, eliminating write-lock contention.",
+                "Engineered responsive, high-performance gameplay UI/UX for global users with React, TypeScript, Next.js, i18n for internationalization and rapid bug resolution on a CI/CD workflow with Vitest and Playwright E2E tests.",
+                "Led frontend development for the secure launch and minting of 500 NFTs by integrating smart contracts with Web3/TON wallet authentication and configuring Cloudflare WAF to mitigate DDoS and XSS attacks.",
+                "Developed a real-time backend leaderboard system with Python pipelines on Windmill orchestrator streaming Apache Pulsar pub/sub events into ScyllaDB for automated data reconciliation.",
             ]
         },
         {
@@ -49,13 +49,34 @@ export const config = {
         }
     ],
     skills: [
-        { category: "Languages", items: "Python, Go, Java, TypeScript, JavaScript, SQL, R" },
+        { category: "Languages", items: "Python, Go, Java, TypeScript, JavaScript, C, SQL" },
         { category: "Frameworks", items: "React, Gin, Next.js, LangGraph, PyTorch, FastAPI, Express.js" },
         { category: "Infrastructure", items: "PostgreSQL, Docker, Git, Redis, oMLX, GCP, AWS" },
         { category: "Certifications", items: "Google Cloud Professional ML Engineer" },
         { category: "Interests", items: "Art & drawing, BJJ, tennis, taekwondo" }
     ],
     projects: [
+        {
+            name: "Standup",
+            date: "Aug 2026 – Present",
+            image: "/images/Standup.png",
+            description: "Standup is a local-first AI agent that turns engineers' scattered codebase, git history, and docs into grounded, effective slide decks in minutes, cutting hours of work into a single conversation. It uses a six-signal ranking system combining PageRank centrality, commit recency, and code churn over a tree-sitter import graph, with a self-improving signal that reweights rankings from every slide a user keeps or cuts.",
+            links: [],
+        },
+        {
+            name: "KopiKakis",
+            date: "Aug 2026",
+            image: "/images/kopikakis.png",
+            description: "KopiKakis is a voice concierge matching seniors to companions via the Gemini Live API, streaming PCM audio through an AudioContext pipeline, with a Firestore matcher guarding concurrent meetup joins behind atomic transactions.",
+            links: [],
+        },
+        {
+            name: "ArbiSuits",
+            date: "Jun 2026 – Present",
+            image: "/images/ArbiSuits.png",
+            description: "ArbiSuits is a portfolio tracker benchmarking holdings against the S&P 500 with live Yahoo Finance and Finnhub prices, featuring a drag-to-rebalance engine that scales holdings to a new target weight for strategic portfolio reallocation.",
+            links: [],
+        },
         {
             name: "ThreadTalk",
             date: "Dec 2025 – Present",
